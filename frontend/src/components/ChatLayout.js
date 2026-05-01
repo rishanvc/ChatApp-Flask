@@ -79,7 +79,7 @@ fetch(`http://127.0.0.1:5000/api/messages/${user.user_id}/${selectedUser.id}`)
         <input
           type="text"
           placeholder="Search users..."
-          className="w-full p-2 mb-3 text-black"
+          className="w-full p-2 mb-3 text-black rounded-md"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
@@ -139,14 +139,14 @@ fetch(`http://127.0.0.1:5000/api/messages/${user.user_id}/${selectedUser.id}`)
       <div className="flex">
         <input
           type="text"
-          className="flex-1 border p-2"
+          className="flex-1 border p-2 hover:bg-blue-50 rounded-lg"
           placeholder="Type a message..."
           value={messageText}
           onChange={(e) => setMessageText(e.target.value)}
         />
 
         <button
-          className="bg-blue-500 text-white px-4"
+           className="ml-3 bg-blue-500 hover:bg-blue-600 text-white px-5 py-2 rounded-lg transition"
           onClick={sendMessage}
         >
           Send
@@ -154,7 +154,9 @@ fetch(`http://127.0.0.1:5000/api/messages/${user.user_id}/${selectedUser.id}`)
       </div>
     </>
   ) : (
-    <p>Select a user to start chatting</p>
+    <div className="flex flex-1 items-center justify-center text-gray-500 text-lg">
+            Select a user to start chatting
+          </div>
   )}
 
 </div>
