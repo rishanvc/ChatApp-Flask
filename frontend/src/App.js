@@ -26,31 +26,16 @@ function App() {
 
   return (
     <div>
-      {showLogin ? <Login onLoginSuccess={handleLoginSuccess} /> : <Register />}
+      {showLogin ? (
+  <Login
+    onLoginSuccess={handleLoginSuccess}
+    onSwitchToRegister={() => setShowLogin(false)}
+  />
+) : (
+  <Register onSwitchToLogin={() => setShowLogin(true)} />
+)}
 
-      <div className="text-center mt-4">
-        {showLogin ? (
-          <p>
-            Don't have an account?{" "}
-            <button
-              className="text-blue-500"
-              onClick={() => setShowLogin(false)}
-            >
-              Register
-            </button>
-          </p>
-        ) : (
-          <p>
-            Already have an account?{" "}
-            <button
-              className="text-blue-500"
-              onClick={() => setShowLogin(true)}
-            >
-              Login
-            </button>
-          </p>
-        )}
-      </div>
+   
     </div>
   );
 }
